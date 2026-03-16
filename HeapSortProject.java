@@ -39,6 +39,18 @@ public class HeapSortProject {
                     heapify(top);
                 }
             }
+        public void buildUp(Node[] X, int sizeX) {
+                this.A = new Node[sizeX + 1];
+        
+                for (int i = 1; i <= sizeX; i++) {
+                    A[i] = X[i];
+                }
+                this.n = sizeX;
+                
+                for (int i = n / 2; i > 0; i--) {
+                    heapify(i);
+                }
+            }
 
         
         public static void main(String[] args){
