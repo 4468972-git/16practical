@@ -1,5 +1,21 @@
 import java.lang.Math; import java.io.FileReader; import java.util.Scanner; import java.text.DecimalFormat;
 public class HeapSortProject {
+        private final int maxSize = 1 << 20;
+        private int n = 0; // n is the size of the heap
+        private Node[] A = new Node[maxSize+1]
+        public HeapSortProject(){ }
+             int getSize(){
+                return n; }
+            void setSize(int i){
+                n = i; }
+            public int leftNode(int i){
+                return 2 * i + 1;
+            }
+            public int rightNode(int i){
+                return 2 * i + 2;
+            }
+
+        
         public static void main(String[] args){
 
             DecimalFormat twoD = new DecimalFormat("0.00");
