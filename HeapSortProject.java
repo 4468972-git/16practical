@@ -65,6 +65,29 @@ public class HeapSortProject {
         
         public static void main(String[] args){
                 Heap heap = new Heap();
+                ArrayList<Node> wordList = new ArrayList<>();
+                try {
+                    long key = 0;
+                    Scanner scanner = new Scanner(new File("joyce1922_ulysses.text"));
+                    while (scanner.hasNext()) {
+                        String word = scanner.next();
+                        wordList.add(new Node(key++, word));
+                    }
+                    scanner.close();
+                } catch (
+                        FileNotFoundException e) {
+                    System.out.println("File not found!");
+        
+                }
+        
+                Node[] wordsArray = wordList.toArray(new Node[0]);
+                
+                Heap heap = new Heap();
+                heap.buildUp(wordsArray,wordsArray.length ); // This organizes them into a heap
+        
+                heap.sort(wordsArray, wordsArray.length );
+                for (Node node : wordsArray)
+                    System.out.println(node);
 
                 DecimalFormat twoD = new DecimalFormat("0.00");
                 DecimalFormat fourD = new DecimalFormat("0.0000");
