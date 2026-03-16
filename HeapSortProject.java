@@ -3,7 +3,7 @@ public class HeapSortProject {
         private final int maxSize = 1 << 20;
         private int n = 0; // n is the size of the heap
         private Node[] A = new Node[maxSize+1]
-        public HeapSortProject(){ }
+        public HeapSortProject(){ } //Constructor
              int getSize(){
                 return n; }
             void setSize(int i){
@@ -13,6 +13,31 @@ public class HeapSortProject {
             }
             public int rightNode(int i){
                 return 2 * i + 2;
+            }
+        public void swap(Node[] A, int i, int top){
+                Node temp = A[top];
+                A[top] = A[i];
+                A[i] = temp;
+            }
+        public void heapify(int i) {
+                int l = leftNode(i);
+                int r = rightNode(i);
+                int top;
+        
+                if (l < n && A[l].key > A[i].key) {
+                    top = l;
+                } else {
+                    top = i;
+                }
+        
+                if (r < n && A[r].key > A[top].key) {
+                    top = r;
+                }
+        
+                if (top != i) {
+                    swap(A, i, top);
+                    heapify(top);
+                }
             }
 
         
